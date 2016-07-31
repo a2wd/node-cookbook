@@ -1,0 +1,15 @@
+{
+  "name": "post-processing",
+  "version": "1.0.0",
+  "description": "Recipes from node cookbook - processing post data",
+  "main": "2.0.2.ConnectBodyParser.js",
+  "scripts": {
+    "test": "supervisor 2.0.2.ConnectBodyParser.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "connect": "<3.0.0"
+  }
+}
