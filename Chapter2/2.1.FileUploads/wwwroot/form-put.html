@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>POST processing</title>
+</head>
+<body>
+	<form id="put-form">
+		<input type="file" id="userInput1" /><br />
+		<input type="submit" />
+	</form>
+
+	<script>
+	(function(){
+		var userFile = document.getElementById("userInput1")
+		var form = document.getElementById("put-form")
+		var file;
+
+		userFile.addEventListener("change", function(){
+			file = this.files[0]
+		})
+
+		form.addEventListener("submit", function(e){
+			e.preventDefault()
+			if(file) {
+				var xhr = new XMLHttpRequest()
+				xhr.file = file
+				xhr.open("put", window.location, true)
+				xhr.setRequestHeader("x-uploaded-filename", file.fileName || file.name)
+				xhr.send(file)
+				file = ""
+				form.reset()
+			}
+		})
+	}())
+	</script>
+</body>
+</html>
