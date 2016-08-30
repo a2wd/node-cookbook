@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JSONP Example</title>
+	<style>
+	#jsonp {
+		background-color: rebeccapurple;
+		color: gold;
+		min-height: 20px;
+	}
+	</style>
+</head>
+<body>
+	<h1>JSONP Example</h1>
+	<p>An example of using padded-JSON in a web page</p>
+
+	<div id="jsonp"><div>
+
+	<script>
+	function cb(o) {
+		var jsonp_node = document.getElementById("jsonp")
+		jsonp_node.innerHTML = o.name + ": " + o.description
+	}
+
+	var who = "ryan"
+	var s = document.createElement("script")
+	s.src = "http://localhost:8080/?callback=cb&who=" + who
+	document.getElementsByTagName("head")[0].appendChild(s)
+	</script>
+</body>
+</html>
